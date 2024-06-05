@@ -1,0 +1,359 @@
+/* | IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+/* | CSS RESET  */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* | UTILITY CLSSES */
+.order {
+	order: 1;
+}
+
+img {
+	display: block;
+}
+
+.cp {
+	cursor: pointer;
+}
+
+/* | VARIABLES */
+:root {
+	/* | COLORS  */
+	--dark-blue: hsl(240, 38%, 20%);
+	--grayish-blue: hsl(240, 18%, 77%);
+	--white: hsl(0, 0%, 100%);
+
+	/* | FONTS  */
+	--h-font: 700 20px 'Inter';
+	--small-font: 300 20px 'Inter';
+	--body-font: 500 32px 'Inter';
+}
+
+/* | GENERAL STYLES */
+html {
+	height: 100vh;
+	/* aspect-ratio: 9/5; */
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	padding: 130px 165px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font: var(--body-font);
+	color: var(--dark-blue);
+	background: var(--white) url(img/pattern-curve.svg) left bottom no-repeat;
+}
+
+.container {
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 87px;
+	position: relative;
+}
+
+.img-area {
+	width: min-content;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	position: absolute;
+	right: 0;
+}
+
+img[alt='Avatar Image'] {
+	width: 540px;
+	height: 540px;
+	border-radius: 10px;
+	transition: all 1.5s ease-in-out;
+}
+
+img[alt='Bg Pattern'] {
+	position: absolute;
+	right: -90px;
+	bottom: -54px;
+	z-index: -1;
+}
+
+.next {
+	width: 112px;
+	height: 56px;
+	padding: 22px;
+	border-radius: 50px;
+	background-color: var(--white);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	left: 60px;
+	bottom: -28px;
+}
+
+.next img {
+	height: 18px;
+	width: auto;
+}
+
+input {
+	display: none;
+}
+
+div#john-testimonial {
+	position: absolute;
+	transform: rotateX(90deg);
+	transition: all 0.01s ease-in-out;
+}
+
+img#john {
+	position: absolute;
+	transform: rotateY(90deg);
+	transition: all 0.01s ease-in-out;
+}
+
+#next:not(:checked) ~ .text-area div#tanya-testimonial,
+#next:checked ~ .img-area img#tanya {
+	position: relative;
+	transform: rotateY(0deg);
+	transform: rotateX(0deg);
+	transition: all 1.5s ease-in-out;
+}
+
+#next:checked ~ .text-area div#john-testimonial,
+#next:checked ~ .img-area img#john {
+	position: relative;
+	transform: rotateY(0deg);
+	transform: rotateX(0deg);
+	transition: all 1.5s ease-in-out;
+}
+
+#next:checked ~ .text-area div#tanya-testimonial {
+	position: absolute;
+	transform: rotateX(90deg);
+	transition: all 0.01s ease-in-out;
+}
+
+#next:checked ~ .img-area img#tanya {
+	position: absolute;
+	transform: rotateY(90deg);
+	transition: all 0.01s ease-in-out;
+}
+
+.text-area {
+	width: 56%;
+	height: auto;
+	z-index: 1;
+	position: relative;
+}
+
+.text-area > div {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	gap: 42px;
+	transition: all 1.5s ease-in-out;
+}
+
+.avatar-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+h3 {
+	font: var(--h-font);
+}
+
+small {
+	font: var(--small-font);
+	color: var(--grayish-blue);
+}
+
+.text-area img {
+	width: 120px;
+	height: 100px;
+	position: absolute;
+	top: -70px;
+	left: 95px;
+}
+
+@media screen and (max-width: 1000px) {
+	/* | GENERAL STYLES */
+	body {
+		padding: 60px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	/* | UTILITY CLSSES */
+	.order {
+		order: 0;
+	}
+
+	/* | VARIABLES */
+	:root {
+		/* | FONTS  */
+		--h-font: 700 30px 'Inter';
+		--small-font: 300 30px 'Inter';
+		--body-font: 500 36px 'Inter';
+	}
+
+	/* | GENERAL STYLES */
+	html {
+		height: auto;
+	}
+
+	body {
+		padding: 160px 70px;
+		background-size: contain;
+	}
+
+	.container {
+		flex-flow: column;
+		justify-content: center;
+	}
+
+	.img-area {
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		right: auto;
+	}
+
+	img[alt='Avatar Image'] {
+		width: 510px;
+		height: 510px;
+		border-radius: 10px;
+	}
+
+	img[alt='Bg Pattern'] {
+		width: 654px;
+		height: auto;
+		right: -72px;
+		bottom: -50px;
+	}
+
+	.next {
+		width: 160px;
+		height: 80px;
+		padding: 30px;
+		left: 50%;
+		bottom: -40px;
+		transform: translateX(-50%);
+	}
+
+	.next img {
+		height: 28px;
+	}
+
+	.text-area {
+		width: 100%;
+	}
+
+	.text-area > div {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: 40px;
+	}
+
+	.avatar-name {
+		flex-flow: column;
+		gap: 10px;
+	}
+
+	.text-area img {
+		width: 100px;
+		height: 120px;
+		top: -60px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+@media screen and (max-width: 550px) {
+	img[alt='Avatar Image'] {
+		width: 380px;
+		height: 380px;
+	}
+
+	img[alt='Bg Pattern'] {
+		width: 490px;
+		height: auto;
+		right: -54px;
+		bottom: -40px;
+	}
+
+	.next {
+		width: 120px;
+		height: 60px;
+		padding: 22px;
+		bottom: -30px;
+	}
+
+	.next img {
+		height: 20px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	/* | VARIABLES */
+	:root {
+		/* | FONTS  */
+		--h-font: 700 15px 'Inter';
+		--small-font: 300 15px 'Inter';
+		--body-font: 500 18px 'Inter';
+	}
+
+	/* | GENERAL STYLES */
+	body {
+		padding: 80px 35px;
+	}
+
+	img[alt='Avatar Image'] {
+		width: 255px;
+		height: 255px;
+		border-radius: 5px;
+	}
+
+	img[alt='Bg Pattern'] {
+		width: 327px;
+		right: -36px;
+		bottom: -25px;
+	}
+
+	.next {
+		width: 80px;
+		height: 40px;
+		padding: 15px;
+		bottom: -20px;
+	}
+
+	.next img {
+		height: 14px;
+	}
+
+	.text-area {
+		gap: 20px;
+	}
+
+	.avatar-name {
+		gap: 5px;
+	}
+
+	.text-area img {
+		width: 50px;
+		height: 60px;
+		top: -30px;
+	}
+}
